@@ -1,4 +1,4 @@
-const { schedule } = require("@netlify/functions");
+/*const { schedule } = require("@netlify/functions");
 
 const handler = async function(event, context) {
     console.log("Received event:", event);
@@ -8,7 +8,7 @@ const handler = async function(event, context) {
     };
 };
 
-exports.handler = schedule("@hourly", handler);
+exports.handler = schedule("@hourly", handler);*/
 
 ///
 function myOrder(array) {
