@@ -1,4 +1,4 @@
-function firstStart () {
+//function firstStart () {
 
 ///
 function myOrder(array) {
@@ -64,8 +64,8 @@ function letsStart(){
 letsStart();
 
 
-}
-setTimeout (firstStart, 2000) ;
+//}
+//setTimeout (firstStart, 2000) ;
 //setInterval(letsStart, 800); 
   
 /*count = 0;
