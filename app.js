@@ -66,7 +66,7 @@ letsStart();
 
 }
 setTimeout (firstStart, 2000) ;
-//setInterval(letsStart, 1000); 
+//setInterval(letsStart, 800); 
   
 /*count = 0;
   
