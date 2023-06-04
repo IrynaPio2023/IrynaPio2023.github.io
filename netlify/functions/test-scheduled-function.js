@@ -11,7 +11,7 @@ const handler = async function(event, context) {
     };
 };
 
-exports.handler = schedule("@hourly", handler);
+exports.handler = schedule("@daily", handler);
 
 /*exports.handler = async function (event, context) {
     console.log("test 1");
