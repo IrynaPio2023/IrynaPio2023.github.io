@@ -59,7 +59,7 @@ function letsStart(){
 } 
 letsStart(); 
 letsStart();
-console.log("test 2 passed ");
+console.log("test 3 passed ");
 
 
 
