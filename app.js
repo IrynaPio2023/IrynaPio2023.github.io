@@ -45,12 +45,25 @@ function newFunc(){
 
 
 
-function letsStart(){
+/*function letsStart(){
     myOrder(arr);
     newFunc();
 } 
 letsStart(); 
-console.log("test 1 passed ");
+console.log("test 1 passed ");*/
+
+function letsStart(){
+    myOrder(arr);
+    newFunc();
+    letsStart = () => {};
+} 
+letsStart(); 
+letsStart();
+console.log("test 2 passed ");
+
+
+
+
 
 //newFunc();
 
