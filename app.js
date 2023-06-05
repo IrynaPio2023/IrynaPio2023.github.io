@@ -50,6 +50,7 @@ function letsStart(){
     newFunc();
 } 
 letsStart(); 
+console.log("test 1 passed ");
 
 //newFunc();
 
