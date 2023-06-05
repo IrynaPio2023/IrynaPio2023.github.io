@@ -1,6 +1,4 @@
-//function firstStart () {
-
-///
+/*
 function myOrder(array) {
     let currentIndex = array.length,  randomIndex;
     while (currentIndex != 0) {
@@ -12,9 +10,6 @@ function myOrder(array) {
     return array;
 }
 var arr = ['Iryna P', 'Yuliya', 'Krystyna', 'Olga', 'Elisa', 'Stefanos', 'Uli', 'Yigit', 'Anna', 'Iryna Z', 'Hasan', 'Thomas', 'Niko'];
-
-//myOrder(arr);
-//console.log(arr);
 
 function newFunc(){
     console.log(newFunc);
@@ -47,6 +42,15 @@ function newFunc(){
     document.querySelector(".employers12").append(emp11);
     document.querySelector(".employers13").append(emp12);
 }
+
+
+
+function letsStart(){
+    myOrder(arr);
+    newFunc();
+} 
+letsStart(); */
+
 //newFunc();
 
 
@@ -55,15 +59,6 @@ function newFunc(){
     newFunc();
 } 
 letsStart(); */
-
-
-function letsStart(){
-    myOrder(arr);
-    newFunc();
-} 
-letsStart();
-
-
 //}
 //setTimeout (firstStart, 2000) ;
 //setInterval(letsStart, 800); 
