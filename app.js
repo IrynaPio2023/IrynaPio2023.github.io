@@ -15,8 +15,8 @@ function newFunc(){
     console.log(newFunc);
 
     let emp = [];
-    //let emp0 = arr[0];
-    //let emp1 = arr[1];
+    let emp0 = arr[0];
+    let emp1 = arr[1];
     let emp2 = arr[2];
     let emp3 = arr[3];
     let emp4 = arr[4];
@@ -28,8 +28,8 @@ function newFunc(){
     let emp10 = arr[10];
     let emp11 = arr[11];
     let emp12 = arr[12];
-    //document.querySelector(".employers1").append(emp0);
-    //document.querySelector(".employers2").append(emp1);
+    document.querySelector(".employers1").append(emp0);
+    document.querySelector(".employers2").append(emp1);
     document.querySelector(".employers3").append(emp2);
     document.querySelector(".employers4").append(emp3);
     document.querySelector(".employers5").append(emp4);
