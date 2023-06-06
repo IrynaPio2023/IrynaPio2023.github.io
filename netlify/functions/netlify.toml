@@ -1,2 +1,2 @@
-//[functions."test-function"]
-//schedule = "@daily"
+[functions."test-function"]
+schedule = "@daily"
