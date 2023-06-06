@@ -1,4 +1,4 @@
-/*
+
 function myOrder(array) {
     let currentIndex = array.length,  randomIndex;
     while (currentIndex != 0) {
@@ -45,21 +45,9 @@ function newFunc(){
 function letsStart(){
     myOrder(arr);
     newFunc();
-    letsStart = () => {};
 } 
 letsStart(); 
-letsStart();
-console.log("test 3 passed ");
-
-
-*/
-
-/*function letsStart(){
-    myOrder(arr);
-    newFunc();
-} 
-letsStart(); 
-console.log("test 1 passed ");*/
+console.log("test 1 passed ");
 
 
 
