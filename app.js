@@ -1,4 +1,4 @@
-
+/*
 function myOrder(array) {
     let currentIndex = array.length,  randomIndex;
     while (currentIndex != 0) {
@@ -42,16 +42,6 @@ function newFunc(){
     document.querySelector(".employers12").append(emp11);
     document.querySelector(".employers13").append(emp12);
 }
-
-
-
-/*function letsStart(){
-    myOrder(arr);
-    newFunc();
-} 
-letsStart(); 
-console.log("test 1 passed ");*/
-
 function letsStart(){
     myOrder(arr);
     newFunc();
@@ -60,6 +50,17 @@ function letsStart(){
 letsStart(); 
 letsStart();
 console.log("test 3 passed ");
+
+
+*/
+
+/*function letsStart(){
+    myOrder(arr);
+    newFunc();
+} 
+letsStart(); 
+console.log("test 1 passed ");*/
+
 
 
 
