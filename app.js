@@ -1,208 +1,86 @@
-
-function myOrder(array) {
-    let currentIndex = array.length,  randomIndex;
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-    return array;
-}
-var arr = ['Iryna P', 'Yuliya', 'Krystyna', 'Olga', 'Elisa', 'Stefanos', 'Uli', 'Yigit', 'Anna', 'Iryna Z', 'Hasan', 'Thomas', 'Niko'];
-
-function newFunc(){
-    console.log(newFunc);
-
-    let emp = [];
-    let emp0 = arr[0];
-    let emp1 = arr[1];
-    let emp2 = arr[2];
-    let emp3 = arr[3];
-    let emp4 = arr[4];
-    let emp5 = arr[5];
-    let emp6 = arr[6];
-    let emp7 = arr[7];
-    let emp8 = arr[8];
-    let emp9 = arr[9];
-    let emp10 = arr[10];
-    let emp11 = arr[11];
-    let emp12 = arr[12];
-    document.querySelector(".employers1").append(emp0);
-    document.querySelector(".employers2").append(emp1);
-    document.querySelector(".employers3").append(emp2);
-    document.querySelector(".employers4").append(emp3);
-    document.querySelector(".employers5").append(emp4);
-    document.querySelector(".employers6").append(emp5);
-    document.querySelector(".employers7").append(emp6);
-    document.querySelector(".employers8").append(emp7);
-    document.querySelector(".employers9").append(emp8);
-    document.querySelector(".employers10").append(emp9);
-    document.querySelector(".employers11").append(emp10);
-    document.querySelector(".employers12").append(emp11);
-    document.querySelector(".employers13").append(emp12);
-}
-function letsStart(){
-    myOrder(arr);
-    newFunc();
-} 
-letsStart(); 
-console.log("test 1 passed ");
-
-
-
-
-
-
-//newFunc();
-
-
-/*function letsStart(){
-    myOrder(arr);
-    newFunc();
-} 
-letsStart(); */
-//}
-//setTimeout (firstStart, 2000) ;
-//setInterval(letsStart, 800); 
-  
-/*count = 0;
-  
-intervalId = setInterval(function(){
- count++;
- if(count == 10){
-   clearInterval(intervalId);
- }
- letsStart();
-}, 2000); */
-/*document.on( "mousemove", function( event ) {
-    var dw = $(document).width() / 15;
-    var dh = $(document).height() / 15;
-    var x = event.pageX/ dw;
-    var y = event.pageY/ dh;
-    $('.eye-ball').css({
-      width : x,
-      height : y
-    });
-  });
-  */
-
-
-
-
-
-/*function myOrder(arr){
-    console.log(arr);
+window.addEventListener('DOMContentLoaded', function() {
+  // Функция для получения текущей даты в формате 'YYYY-MM-DD'
+  function getCurrentDate() {
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = (today.getMonth() + 1).toString().padStart(2, '0');
+    var day = today.getDate().toString().padStart(2, '0');
+    return year + '-' + month + '-' + day;
   }
-  
-  count = 0;
-  
-  intervalId = setInterval(function(){
-   count++;
-   if(count == 10){
-     clearInterval(intervalId);
-   }
-   myOrder(arr);
-  }, 2000); */
 
+  // Функция для проверки, является ли текущая дата следующим днем после сохраненной даты
+  function isNextDay(currentDate, savedDate) {
+    var nextDay = new Date(savedDate);
+    nextDay.setDate(nextDay.getDate() + 1);
+    var nextDayFormatted = nextDay.toISOString().substr(0, 10);
+    return currentDate === nextDayFormatted;
+  }
 
+  // Функция для загрузки порядка из файла
+  function loadOrderFromFile() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var response = xhr.responseText;
+        var orderMatch = response.match(/Order: (.*)/);
+        var dateMatch = response.match(/Date: (.*)/);
+        if (orderMatch && dateMatch) {
+          var order = orderMatch[1].split(', ');
+          var savedDate = dateMatch[1];
+          var currentDate = getCurrentDate();
+          if (isNextDay(currentDate, savedDate)) {
+            // Если текущая дата следующий день, генерируем новый порядок и записываем в файл
+            generateNewOrder();
+          } else {
+            // Иначе загружаем порядок из файла
+            displayOrder(order);
+          }
+        } else {
+          generateNewOrder();
+        }
+      }
+    };
+    xhr.open('GET', 'order.txt', true);
+    xhr.send();
+  }
 
-//main function important
-//let newt = document.querySelector('.employers-main').after(arr);
-
-///////
-
-
-  /*$('#password').focusin(function(){
-    $('form').addClass('up')
-  });
-  $('#password').focusout(function(){
-    $('form').removeClass('up')
-  });
-  
-  // Panda Eye move
-$(document).on( "mousemove", function( event ) {
-    var dw = $(document).width() / 15;
-    var dh = $(document).height() / 15;
-    var x = event.pageX/ dw;
-    var y = event.pageY/ dh;
-    $('.eye-ball').css({
-      width : x,
-      height : y
+  // Функция для генерации нового порядка и записи в файл
+  function generateNewOrder() {
+    var employers = document.querySelectorAll('.employers-main > div');
+    var order = Array.from(employers).map(function(employer) {
+      return employer.textContent;
     });
-  });
-  
-  // validation
-  
-  
-  $('.btn').click(function(){
-    $('form').addClass('wrong-entry');
-      setTimeout(function(){ 
-         $('form').removeClass('wrong-entry');
-       },3000 );
-  });
-*/
+    shuffleArray(order);
+    displayOrder(order);
+    writeOrderAndDateToFile(order);
+  }
 
-
-
-/*
-
-function myOrder(array) {
-    let currentIndex = array.length,  randomIndex;
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+  // Функция для перемешивания элементов массива (алгоритм Фишера-Йетса)
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
+  }
 
-    return array;
-}
+  // Функция для отображения порядка на странице
+  function displayOrder(order) {
+    var employers = document.querySelectorAll('.employers-main > div');
+    employers.forEach(function(employer, index) {
+      employer.textContent = order[index];
+    });
+  }
 
-var arr = ['Iryna P', 'Yuliya', 'Krystyna', 'Olga', 'Elisa', 'Stefanos', 'Uli', 'Yigit', 'Anna', 'Iryna Z', 'Hasan', 'Thomas', 'Niko'];
-//arr.toString();
-let newArr = arr.toString();
+  // Функция для записи порядка и даты в файл
+  function writeOrderAndDateToFile(order) {
+    var xhr = new XMLHttpRequest();
+    var currentDate = getCurrentDate();
+    var data = 'Order: ' + order.join(', ') + '\nDate: ' + currentDate;
+    xhr.open('POST', 'write_order.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send('data=' + encodeURIComponent(data));
+  }
 
-//let newOne = arr.join('<br/>');
-//console.log(newOne);
-
-//main function important
-myOrder(arr);
-console.log(arr);
-//main function important
-//let newt = document.querySelector('.employers-main').after(arr);
-
-let newArrayFinish = this.arr.forEach( emotion => console.log(emotion) );
-
-let emp = [];
-let trbo0 = arr[0];
-let trbo1 = arr[1];
-let trbo2 = arr[2];
-let trbo3 = arr[3];
-let trbo4 = arr[4];
-let trbo5 = arr[5];
-let trbo6 = arr[6];
-let trbo7 = arr[7];
-let trbo8 = arr[8];
-let trbo9 = arr[9];
-let trbo10 = arr[10];
-let trbo11 = arr[11];
-let trbo12 = arr[12];
-
-document.querySelector(".employers1").append(trbo0);
-document.querySelector(".employers2").append(trbo1);
-document.querySelector(".employers3").append(trbo2);
-document.querySelector(".employers4").append(trbo3);
-document.querySelector(".employers5").append(trbo4);
-document.querySelector(".employers6").append(trbo5);
-document.querySelector(".employers7").append(trbo6);
-document.querySelector(".employers8").append(trbo7);
-document.querySelector(".employers9").append(trbo8);
-document.querySelector(".employers10").append(trbo9);
-document.querySelector(".employers11").append(trbo10);
-document.querySelector(".employers12").append(trbo11);
-document.querySelector(".employers13").append(trbo12);
-
-
-
-*/
+  // Загрузка порядка из файла при загрузке страницы
+  loadOrderFromFile();
+});
